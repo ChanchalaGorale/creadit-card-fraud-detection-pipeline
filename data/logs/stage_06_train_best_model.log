@@ -1,0 +1,2 @@
+2025-07-10 12:51:25,145 - INFO - Final Model Performance: 🟢 Model is generalizing well: train and test metrics are consistent.
+2025-07-10 12:51:25,146 - INFO - Final Model Metrics: {'accuracy': 0.9997889664632538, 'precision': 0.9995956754856289, 'recall': 0.9999824138719379, 'f1_score': 0.9997890072792489}

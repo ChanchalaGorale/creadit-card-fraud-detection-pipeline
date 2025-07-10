@@ -1,0 +1,10 @@
+artifact_location: file:///Users/apple/Desktop/creadit card froud detection/mlruns/138791365296295084/models/m-148757849299471eb4218dffc6c91d67/artifacts
+creation_timestamp: 1752144405775
+experiment_id: '138791365296295084'
+last_updated_timestamp: 1752144410687
+model_id: m-148757849299471eb4218dffc6c91d67
+model_type: null
+name: baseline_model
+source_run_id: 44811042669c4338a2a2d9da6f5a96fe
+status: 2
+status_message: null

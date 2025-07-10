@@ -1,0 +1,339 @@
+2025-07-10 10:39:35,862 - INFO - Starting full fraud detection model pipeline
+2025-07-10 10:39:35,862 - INFO - Starting Stage 01 - Load & Clean Data
+2025-07-10 10:39:37,123 - INFO - Loaded data from data/raw/data.csv with shape (284807, 31)
+2025-07-10 10:39:37,123 - ERROR - Error loading data: 'function' object has no attribute 'sum'
+2025-07-10 10:39:37,123 - ERROR - Error in stage 'Stage 01 - Load & Clean Data': 'function' object has no attribute 'sum'
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/pipeline.py", line 21, in log_stage
+    func(*args, **kwargs)
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/stages/stage_01_load_clean_data.py", line 26, in load_data
+    if df.isnull.sum().any():
+       ^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'sum'
+2025-07-10 10:39:37,124 - ERROR - Pipeline failed with error: 'function' object has no attribute 'sum'
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/pipeline.py", line 32, in run_pipeline
+    log_stage("Stage 01 - Load & Clean Data", load_data,
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/pipeline.py", line 21, in log_stage
+    func(*args, **kwargs)
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/stages/stage_01_load_clean_data.py", line 26, in load_data
+    if df.isnull.sum().any():
+       ^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'sum'
+2025-07-10 10:40:47,269 - INFO - Starting full fraud detection model pipeline
+2025-07-10 10:40:47,269 - INFO - Starting Stage 01 - Load & Clean Data
+2025-07-10 10:40:48,466 - INFO - Loaded data from data/raw/data.csv with shape (284807, 31)
+2025-07-10 10:40:48,480 - INFO - No missing values found.
+2025-07-10 10:40:56,785 - INFO - Saved loaded data to data/clean
+2025-07-10 10:40:56,787 - INFO - Completed Stage 01 - Load & Clean Data in 9.52 seconds
+2025-07-10 10:40:56,787 - INFO - Starting Stage 02 - Balance & Select Features
+2025-07-10 10:40:56,787 - ERROR - Error in preprocessing: read_csv() got an unexpected keyword argument 'required_columns'
+2025-07-10 10:40:56,787 - ERROR - Error in stage 'Stage 02 - Balance & Select Features': read_csv() got an unexpected keyword argument 'required_columns'
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/pipeline.py", line 21, in log_stage
+    func(*args, **kwargs)
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/stages/stage_02_identify_feature_and_target.py", line 25, in balanced_feature_identification
+    df = pd.read_csv(input_path, required_columns=[target])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/site-packages/pandas/util/_decorators.py", line 331, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: read_csv() got an unexpected keyword argument 'required_columns'
+2025-07-10 10:40:56,789 - ERROR - Pipeline failed with error: read_csv() got an unexpected keyword argument 'required_columns'
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/pipeline.py", line 36, in run_pipeline
+    log_stage("Stage 02 - Balance & Select Features", balanced_feature_identification,
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/pipeline.py", line 21, in log_stage
+    func(*args, **kwargs)
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/stages/stage_02_identify_feature_and_target.py", line 25, in balanced_feature_identification
+    df = pd.read_csv(input_path, required_columns=[target])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/site-packages/pandas/util/_decorators.py", line 331, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: read_csv() got an unexpected keyword argument 'required_columns'
+2025-07-10 10:43:09,766 - INFO - Starting full fraud detection model pipeline
+2025-07-10 10:43:09,767 - INFO - Starting Stage 01 - Load & Clean Data
+2025-07-10 10:43:11,075 - INFO - Loaded data from data/raw/data.csv with shape (284807, 31)
+2025-07-10 10:43:11,089 - INFO - No missing values found.
+2025-07-10 10:43:19,712 - INFO - Saved loaded data to data/clean
+2025-07-10 10:43:19,713 - INFO - Completed Stage 01 - Load & Clean Data in 9.95 seconds
+2025-07-10 10:43:19,713 - INFO - Starting Stage 02 - Balance & Select Features
+2025-07-10 10:43:20,914 - INFO - Class imbalance found: running SMOTE for resampling.
+2025-07-10 10:43:38,671 - INFO - Preprocessing completed: features & targets separated and saved.
+2025-07-10 10:43:38,678 - INFO - Completed Stage 02 - Balance & Select Features in 18.96 seconds
+2025-07-10 10:43:38,678 - INFO - Starting Stage 03 - Split Data
+2025-07-10 10:44:00,000 - INFO - Data split: 454904 train / 113726 test samples.
+2025-07-10 10:44:00,006 - INFO - Completed Stage 03 - Split Data in 21.33 seconds
+2025-07-10 10:44:00,006 - INFO - Starting Stage 04 - Train Baseline Model
+2025-07-10 10:44:11,806 - INFO - Baseline model trained. Metrics: {'accuracy': 0.9778063063855231, 'precision': 0.986969691538365, 'recall': 0.9683977278722543, 'f1_score': 0.977595512001136}
+2025-07-10 10:44:11,810 - INFO - Completed Stage 04 - Train Baseline Model in 11.80 seconds
+2025-07-10 10:44:11,810 - INFO - Starting Stage 05 - Find Best Model & Params
+2025-07-10 10:44:14,360 - INFO - Tuning RandomForest...
+2025-07-10 11:47:11,281 - INFO - RandomForest | F1: 0.9998417471118848 | Params: {'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}
+2025-07-10 11:47:11,284 - INFO - Tuning XGBoost...
+2025-07-10 11:48:05,333 - INFO - XGBoost | F1: 0.9996923320352675 | Params: {'learning_rate': 0.1, 'max_depth': 6, 'n_estimators': 200}
+2025-07-10 11:48:05,444 - INFO - Best Model: RandomForest | F1: 0.9998417471118848
+2025-07-10 11:48:05,451 - INFO - Completed Stage 05 - Find Best Model & Params in 3833.64 seconds
+2025-07-10 11:48:05,451 - INFO - Starting Stage 06 - Train Final Best Model
+2025-07-10 11:48:08,303 - ERROR - Error in final model training: expected str, bytes or os.PathLike object, not tuple
+2025-07-10 11:48:08,303 - ERROR - Error in stage 'Stage 06 - Train Final Best Model': expected str, bytes or os.PathLike object, not tuple
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/pipeline.py", line 21, in log_stage
+    func(*args, **kwargs)
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/stages/stage_06_train_best_model.py", line 71, in train_best_model
+    with open(best_params_path, "r") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not tuple
+2025-07-10 11:48:08,305 - ERROR - Pipeline failed with error: expected str, bytes or os.PathLike object, not tuple
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/pipeline.py", line 53, in run_pipeline
+    log_stage("Stage 06 - Train Final Best Model", train_best_model,
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/pipeline.py", line 21, in log_stage
+    func(*args, **kwargs)
+  File "/Users/apple/Desktop/creadit card froud detection/credit_card_fraud/pipeline/stages/stage_06_train_best_model.py", line 71, in train_best_model
+    with open(best_params_path, "r") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not tuple
+2025-07-10 14:31:47,320 - INFO - Starting full fraud detection model pipeline
+2025-07-10 14:31:47,320 - INFO - Starting Stage 01 - Load & Clean Data
+2025-07-10 14:31:48,536 - INFO - Loaded data from data/raw/data.csv with shape (284807, 31)
+2025-07-10 14:31:48,550 - INFO - No missing values found.
+2025-07-10 14:31:56,879 - INFO - Saved loaded data to data/clean
+2025-07-10 14:31:56,881 - INFO - Completed Stage 01 - Load & Clean Data in 9.56 seconds
+2025-07-10 14:31:56,881 - INFO - Starting Stage 02 - Balance & Select Features
+2025-07-10 14:31:58,076 - INFO - Class imbalance found: running SMOTE for resampling.
+2025-07-10 14:32:16,206 - INFO - Preprocessing completed: features & targets separated and saved.
+2025-07-10 14:32:16,214 - INFO - Completed Stage 02 - Balance & Select Features in 19.33 seconds
+2025-07-10 14:32:16,214 - INFO - Starting Stage 03 - Split Data
+2025-07-10 14:32:38,014 - INFO - Data split: 454904 train / 113726 test samples.
+2025-07-10 14:32:38,018 - INFO - Completed Stage 03 - Split Data in 21.80 seconds
+2025-07-10 14:32:38,018 - INFO - Starting Stage 04 - Train Baseline Model
+2025-07-10 14:32:51,069 - INFO - Baseline model trained. Metrics: {'accuracy': 0.9778063063855231, 'precision': 0.986969691538365, 'recall': 0.9683977278722543, 'f1_score': 0.977595512001136}
+2025-07-10 14:32:51,073 - INFO - Completed Stage 04 - Train Baseline Model in 13.05 seconds
+2025-07-10 14:32:51,073 - INFO - Starting Stage 06 - Train Final Best Model
+2025-07-10 14:45:58,839 - ERROR - Error in final model training: 'RandomForestClassifier' object has no attribute 'save_model'
+2025-07-10 14:45:58,840 - ERROR - Error in stage 'Stage 06 - Train Final Best Model': 'RandomForestClassifier' object has no attribute 'save_model'
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/pipeline.py", line 28, in log_stage
+    func(*args, **kwargs)
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/stages/stage_06_train_best_model.py", line 98, in train_best_model
+    mlflow.xgboost.log_model(model, artifact_path="final_model")
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 278, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/models/model.py", line 1207, in log
+    flavor.save_model(path=local_path, mlflow_model=mlflow_model, **kwargs)
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 168, in save_model
+    xgb_model.save_model(model_data_path)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RandomForestClassifier' object has no attribute 'save_model'
+2025-07-10 14:45:58,845 - ERROR - Pipeline failed with error: 'RandomForestClassifier' object has no attribute 'save_model'
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/pipeline.py", line 60, in run_pipeline
+    log_stage("Stage 06 - Train Final Best Model", train_best_model,
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/pipeline.py", line 28, in log_stage
+    func(*args, **kwargs)
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/stages/stage_06_train_best_model.py", line 98, in train_best_model
+    mlflow.xgboost.log_model(model, artifact_path="final_model")
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 278, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/models/model.py", line 1207, in log
+    flavor.save_model(path=local_path, mlflow_model=mlflow_model, **kwargs)
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 168, in save_model
+    xgb_model.save_model(model_data_path)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RandomForestClassifier' object has no attribute 'save_model'
+2025-07-10 14:52:25,408 - INFO - Starting full fraud detection model pipeline
+2025-07-10 14:52:25,408 - INFO - Starting Stage 01 - Load & Clean Data
+2025-07-10 14:52:26,657 - INFO - Loaded data from data/raw/data.csv with shape (284807, 31)
+2025-07-10 14:52:26,675 - INFO - No missing values found.
+2025-07-10 14:52:35,184 - INFO - Saved loaded data to data/clean
+2025-07-10 14:52:35,186 - INFO - Completed Stage 01 - Load & Clean Data in 9.78 seconds
+2025-07-10 14:52:35,186 - INFO - Starting Stage 02 - Balance & Select Features
+2025-07-10 14:52:36,438 - INFO - Class imbalance found: running SMOTE for resampling.
+2025-07-10 14:52:54,490 - INFO - Preprocessing completed: features & targets separated and saved.
+2025-07-10 14:52:54,498 - INFO - Completed Stage 02 - Balance & Select Features in 19.31 seconds
+2025-07-10 14:52:54,499 - INFO - Starting Stage 03 - Split Data
+2025-07-10 14:53:15,925 - INFO - Data split: 454904 train / 113726 test samples.
+2025-07-10 14:53:15,930 - INFO - Completed Stage 03 - Split Data in 21.43 seconds
+2025-07-10 14:53:15,930 - INFO - Starting Stage 04 - Train Baseline Model
+2025-07-10 14:53:31,649 - INFO - Baseline model trained. Metrics: {'accuracy': 0.9778063063855231, 'precision': 0.986969691538365, 'recall': 0.9683977278722543, 'f1_score': 0.977595512001136}
+2025-07-10 14:53:31,656 - INFO - Completed Stage 04 - Train Baseline Model in 15.73 seconds
+2025-07-10 14:53:31,656 - INFO - Starting Stage 06 - Train Final Best Model
+2025-07-10 15:06:43,266 - ERROR - Error in final model training: 'RandomForestClassifier' object has no attribute 'save_model'
+2025-07-10 15:06:43,267 - ERROR - Error in stage 'Stage 06 - Train Final Best Model': 'RandomForestClassifier' object has no attribute 'save_model'
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/pipeline.py", line 28, in log_stage
+    func(*args, **kwargs)
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/stages/stage_06_train_best_model.py", line 98, in train_best_model
+    mlflow.xgboost.log_model(model, name="final_model")
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 278, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/models/model.py", line 1207, in log
+    flavor.save_model(path=local_path, mlflow_model=mlflow_model, **kwargs)
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 168, in save_model
+    xgb_model.save_model(model_data_path)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RandomForestClassifier' object has no attribute 'save_model'
+2025-07-10 15:06:43,272 - ERROR - Pipeline failed with error: 'RandomForestClassifier' object has no attribute 'save_model'
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/pipeline.py", line 60, in run_pipeline
+    log_stage("Stage 06 - Train Final Best Model", train_best_model,
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/pipeline.py", line 28, in log_stage
+    func(*args, **kwargs)
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/stages/stage_06_train_best_model.py", line 98, in train_best_model
+    mlflow.xgboost.log_model(model, name="final_model")
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 278, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/models/model.py", line 1207, in log
+    flavor.save_model(path=local_path, mlflow_model=mlflow_model, **kwargs)
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 168, in save_model
+    xgb_model.save_model(model_data_path)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RandomForestClassifier' object has no attribute 'save_model'
+2025-07-10 15:28:57,374 - INFO - Starting full fraud detection model pipeline
+2025-07-10 15:28:57,375 - INFO - Starting Stage 01 - Load & Clean Data
+2025-07-10 15:28:58,591 - INFO - Loaded data from data/raw/data.csv with shape (284807, 31)
+2025-07-10 15:28:58,604 - INFO - No missing values found.
+2025-07-10 15:29:07,250 - INFO - Saved loaded data to data/clean
+2025-07-10 15:29:07,252 - INFO - Completed Stage 01 - Load & Clean Data in 9.88 seconds
+2025-07-10 15:29:07,253 - INFO - Starting Stage 02 - Balance & Select Features
+2025-07-10 15:29:08,464 - INFO - Class imbalance found: running SMOTE for resampling.
+2025-07-10 15:29:26,744 - INFO - Preprocessing completed: features & targets separated and saved.
+2025-07-10 15:29:26,753 - INFO - Completed Stage 02 - Balance & Select Features in 19.50 seconds
+2025-07-10 15:29:26,753 - INFO - Starting Stage 03 - Split Data
+2025-07-10 15:29:48,123 - INFO - Data split: 454904 train / 113726 test samples.
+2025-07-10 15:29:48,129 - INFO - Completed Stage 03 - Split Data in 21.38 seconds
+2025-07-10 15:29:48,129 - INFO - Starting Stage 04 - Train Baseline Model
+2025-07-10 15:30:04,349 - INFO - Baseline model trained. Metrics: {'accuracy': 0.9778063063855231, 'precision': 0.986969691538365, 'recall': 0.9683977278722543, 'f1_score': 0.977595512001136}
+2025-07-10 15:30:04,354 - INFO - Completed Stage 04 - Train Baseline Model in 16.23 seconds
+2025-07-10 15:30:04,354 - INFO - Starting Stage 06 - Train Final Best Model
+2025-07-10 15:43:14,224 - ERROR - Error in final model training: 'RandomForestClassifier' object has no attribute 'save_model'
+2025-07-10 15:43:14,225 - ERROR - Error in stage 'Stage 06 - Train Final Best Model': 'RandomForestClassifier' object has no attribute 'save_model'
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/pipeline.py", line 28, in log_stage
+    func(*args, **kwargs)
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/stages/stage_06_train_best_model.py", line 98, in train_best_model
+    mlflow.xgboost.log_model(model, name="final_model")
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 278, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/models/model.py", line 1207, in log
+    flavor.save_model(path=local_path, mlflow_model=mlflow_model, **kwargs)
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 168, in save_model
+    xgb_model.save_model(model_data_path)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RandomForestClassifier' object has no attribute 'save_model'
+2025-07-10 15:43:14,230 - ERROR - Pipeline failed with error: 'RandomForestClassifier' object has no attribute 'save_model'
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/pipeline.py", line 60, in run_pipeline
+    log_stage("Stage 06 - Train Final Best Model", train_best_model,
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/pipeline.py", line 28, in log_stage
+    func(*args, **kwargs)
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/stages/stage_06_train_best_model.py", line 98, in train_best_model
+    mlflow.xgboost.log_model(model, name="final_model")
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 278, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/models/model.py", line 1207, in log
+    flavor.save_model(path=local_path, mlflow_model=mlflow_model, **kwargs)
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 168, in save_model
+    xgb_model.save_model(model_data_path)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RandomForestClassifier' object has no attribute 'save_model'
+2025-07-10 16:15:36,659 - INFO - Starting full fraud detection model pipeline
+2025-07-10 16:15:36,659 - INFO - Starting Stage 01 - Load & Clean Data
+2025-07-10 16:15:37,951 - INFO - Loaded data from data/raw/data.csv with shape (284807, 31)
+2025-07-10 16:15:37,964 - INFO - No missing values found.
+2025-07-10 16:15:47,266 - INFO - Saved loaded data to data/clean
+2025-07-10 16:15:47,270 - INFO - Completed Stage 01 - Load & Clean Data in 10.61 seconds
+2025-07-10 16:15:47,270 - INFO - Starting Stage 02 - Balance & Select Features
+2025-07-10 16:15:48,579 - INFO - Class imbalance found: running SMOTE for resampling.
+2025-07-10 16:16:07,584 - INFO - Preprocessing completed: features & targets separated and saved.
+2025-07-10 16:16:07,602 - INFO - Completed Stage 02 - Balance & Select Features in 20.33 seconds
+2025-07-10 16:16:07,602 - INFO - Starting Stage 03 - Split Data
+2025-07-10 16:16:30,078 - INFO - Data split: 454904 train / 113726 test samples.
+2025-07-10 16:16:30,083 - INFO - Completed Stage 03 - Split Data in 22.48 seconds
+2025-07-10 16:16:30,083 - INFO - Starting Stage 04 - Train Baseline Model
+2025-07-10 16:16:50,696 - INFO - Baseline model trained. Metrics: {'accuracy': 0.9778063063855231, 'precision': 0.986969691538365, 'recall': 0.9683977278722543, 'f1_score': 0.977595512001136}
+2025-07-10 16:16:50,707 - INFO - Completed Stage 04 - Train Baseline Model in 20.62 seconds
+2025-07-10 16:16:50,707 - INFO - Starting Stage 06 - Train Final Best Model
+2025-07-10 16:30:23,488 - ERROR - Error in final model training: 'RandomForestClassifier' object has no attribute 'save_model'
+2025-07-10 16:30:23,489 - ERROR - Error in stage 'Stage 06 - Train Final Best Model': 'RandomForestClassifier' object has no attribute 'save_model'
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/pipeline.py", line 28, in log_stage
+    func(*args, **kwargs)
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/stages/stage_06_train_best_model.py", line 98, in train_best_model
+    # Inference input and output (for signature)
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 278, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/models/model.py", line 1207, in log
+    flavor.save_model(path=local_path, mlflow_model=mlflow_model, **kwargs)
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 168, in save_model
+    xgb_model.save_model(model_data_path)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RandomForestClassifier' object has no attribute 'save_model'
+2025-07-10 16:30:23,494 - ERROR - Pipeline failed with error: 'RandomForestClassifier' object has no attribute 'save_model'
+Traceback (most recent call last):
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/pipeline.py", line 60, in run_pipeline
+    log_stage("Stage 06 - Train Final Best Model", train_best_model,
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/pipeline.py", line 28, in log_stage
+    func(*args, **kwargs)
+  File "/Users/apple/Desktop/creadit card froud detection/pipeline/stages/stage_06_train_best_model.py", line 98, in train_best_model
+    # Inference input and output (for signature)
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 278, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/models/model.py", line 1207, in log
+    flavor.save_model(path=local_path, mlflow_model=mlflow_model, **kwargs)
+  File "/opt/anaconda3/lib/python3.11/site-packages/mlflow/xgboost/__init__.py", line 168, in save_model
+    xgb_model.save_model(model_data_path)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RandomForestClassifier' object has no attribute 'save_model'
+2025-07-10 16:34:26,599 - INFO - Starting full fraud detection model pipeline
+2025-07-10 16:34:26,600 - INFO - Starting Stage 01 - Load & Clean Data
+2025-07-10 16:34:27,787 - INFO - Loaded data from data/raw/data.csv with shape (284807, 31)
+2025-07-10 16:34:27,801 - INFO - No missing values found.
+2025-07-10 16:34:36,580 - INFO - Saved loaded data to data/clean
+2025-07-10 16:34:36,582 - INFO - Completed Stage 01 - Load & Clean Data in 9.98 seconds
+2025-07-10 16:34:36,582 - INFO - Starting Stage 02 - Balance & Select Features
+2025-07-10 16:34:38,102 - INFO - Class imbalance found: running SMOTE for resampling.
+2025-07-10 16:34:56,771 - INFO - Preprocessing completed: features & targets separated and saved.
+2025-07-10 16:34:56,782 - INFO - Completed Stage 02 - Balance & Select Features in 20.20 seconds
+2025-07-10 16:34:56,782 - INFO - Starting Stage 03 - Split Data
+2025-07-10 16:35:18,469 - INFO - Data split: 454904 train / 113726 test samples.
+2025-07-10 16:35:18,475 - INFO - Completed Stage 03 - Split Data in 21.69 seconds
+2025-07-10 16:35:18,475 - INFO - Starting Stage 04 - Train Baseline Model
+2025-07-10 16:35:40,016 - INFO - Baseline model trained. Metrics: {'accuracy': 0.9778063063855231, 'precision': 0.986969691538365, 'recall': 0.9683977278722543, 'f1_score': 0.977595512001136}
+2025-07-10 16:35:40,026 - INFO - Completed Stage 04 - Train Baseline Model in 21.55 seconds
+2025-07-10 16:35:40,026 - INFO - Starting Stage 05 - Find Best Model & Params
+2025-07-10 16:35:42,938 - INFO - Tuning RandomForest...
+2025-07-10 16:45:52,936 - INFO - Starting full fraud detection model pipeline
+2025-07-10 16:45:52,936 - INFO - Starting Stage 01 - Load & Clean Data
+2025-07-10 16:45:54,146 - INFO - Loaded data from data/raw/data.csv with shape (284807, 31)
+2025-07-10 16:45:54,155 - INFO - No missing values found.
+2025-07-10 16:46:03,153 - INFO - Saved loaded data to data/clean
+2025-07-10 16:46:03,155 - INFO - Completed Stage 01 - Load & Clean Data in 10.22 seconds
+2025-07-10 16:46:03,155 - INFO - Starting Stage 02 - Balance & Select Features
+2025-07-10 16:46:04,356 - INFO - Class imbalance found: running SMOTE for resampling.
+2025-07-10 16:46:22,973 - INFO - Preprocessing completed: features & targets separated and saved.
+2025-07-10 16:46:22,980 - INFO - Completed Stage 02 - Balance & Select Features in 19.83 seconds
+2025-07-10 16:46:22,980 - INFO - Starting Stage 03 - Split Data
+2025-07-10 16:46:45,375 - INFO - Data split: 454904 train / 113726 test samples.
+2025-07-10 16:46:45,380 - INFO - Completed Stage 03 - Split Data in 22.40 seconds
+2025-07-10 16:46:45,380 - INFO - Starting Stage 04 - Train Baseline Model
+2025-07-10 16:47:03,061 - INFO - Baseline model trained. Metrics: {'accuracy': 0.9778063063855231, 'precision': 0.986969691538365, 'recall': 0.9683977278722543, 'f1_score': 0.977595512001136}
+2025-07-10 16:47:03,065 - INFO - Completed Stage 04 - Train Baseline Model in 17.68 seconds
+2025-07-10 16:47:03,065 - INFO - Starting Stage 05 - Find Best Model & Params
+2025-07-10 16:47:05,868 - INFO - Tuning RandomForest...

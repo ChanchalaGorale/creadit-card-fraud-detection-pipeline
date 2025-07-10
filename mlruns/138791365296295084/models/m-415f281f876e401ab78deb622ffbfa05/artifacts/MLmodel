@@ -1,0 +1,22 @@
+artifact_path: file:///Users/apple/Desktop/creadit card froud detection/mlruns/138791365296295084/models/m-415f281f876e401ab78deb622ffbfa05/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.7
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.3.2
+mlflow_version: 3.1.1
+model_id: m-415f281f876e401ab78deb622ffbfa05
+model_size_bytes: 1212
+model_uuid: m-415f281f876e401ab78deb622ffbfa05
+prompts: null
+run_id: 048f49d3f43b41f49c0eaba9b4b1a1d7
+utc_time_created: '2025-07-10 11:16:58.568105'

@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/apple/Desktop/creadit card froud detection/mlruns/138791365296295084/3680ee66a8c94dd2bd01421bf856b6a0/artifacts
+end_time: 1752139411650
+entry_point_name: ''
+experiment_id: '138791365296295084'
+lifecycle_stage: active
+run_id: 3680ee66a8c94dd2bd01421bf856b6a0
+run_name: Baseline Model
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752139399184
+status: 3
+tags: []
+user_id: apple
