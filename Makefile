@@ -5,7 +5,7 @@ train:
 	python pipeline/pipeline.py
 
 retrain:
-	python pipeline/pipeline_retrain.py
+	python pipeline/pipeline.py --retrain
 
 trackapp:
 	mlflow ui

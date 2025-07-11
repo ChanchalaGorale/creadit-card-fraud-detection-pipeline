@@ -13,7 +13,7 @@ from sklearn.metrics import (
 )
 import mlflow
 import mlflow.sklearn
-from mlflow_config import MLFLOW_TRACKING_URI, EXPERIMENT_NAME
+from config.mlflow_config import MLFLOW_TRACKING_URI, EXPERIMENT_NAME
 
 logger = logging.getLogger(__name__)
 

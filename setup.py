@@ -12,7 +12,7 @@ def ensure_folders_exist(folders: list):
 
 def main():
     folders = [
-        "data/raw", "data/clean", "data/split", "data/train_test", "data/logs",
+        "data/raw", "data/clean", "data/split", "data/train_test", "data/logs","data/realtime",
         "models/baseline", "models/best", "models/final", "config"
     ]
     

@@ -1,8 +1,8 @@
 import logging
 import time
 import mlflow
-from mlflow_config import MLFLOW_TRACKING_URI, EXPERIMENT_NAME
-
+from config.mlflow_config import MLFLOW_TRACKING_URI, EXPERIMENT_NAME
+import argparse
 from stages.stage_01_load_clean_data import load_data
 from stages.stage_02_identify_feature_and_target import balanced_feature_identification
 from stages.stage_03_split_data import split_and_save_data
@@ -32,13 +32,14 @@ def log_stage(stage_name: str, func, *args, **kwargs) -> None:
         logging.exception(f"Error in stage '{stage_name}': {e}")
         raise
 
-def run_pipeline() -> None:
+def run_pipeline(retrain: bool) -> None:
     """Run the end-to-end credit card fraud detection model training pipeline."""
     logging.info("Starting full fraud detection model pipeline")
     try:
         log_stage("Stage 01 - Load & Clean Data", load_data,
                   input_path="data/raw/data.csv",
-                  output_dir="data/clean")
+                  realtime_input_path="data/realtime/data.csv",
+                  output_dir="data/clean", retrain=retrain)
 
         log_stage("Stage 02 - Balance & Select Features", balanced_feature_identification,
                   input_path="data/clean/data.csv",
@@ -67,5 +68,15 @@ def run_pipeline() -> None:
     except Exception as e:
         logging.exception(f"Pipeline failed with error: {e}")
 
+
 if __name__ == "__main__":
-    run_pipeline()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--retrain",
+        action="store_true",
+        help="To retrain the model on training and realtime data"
+    )
+    args = parser.parse_args()
+
+    run_pipeline(args.retrain)
+    

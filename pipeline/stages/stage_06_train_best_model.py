@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from xgboost import XGBClassifier
 import mlflow
 import mlflow.xgboost
-from mlflow_config import MLFLOW_TRACKING_URI, EXPERIMENT_NAME
+from config.mlflow_config import MLFLOW_TRACKING_URI, EXPERIMENT_NAME
 from mlflow.models.signature import infer_signature
 
 logger = logging.getLogger(__name__)
